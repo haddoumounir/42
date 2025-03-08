@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fract_ol.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddou <mhaddou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mhaddou <mhaddou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 08:36:50 by mhaddou           #+#    #+#             */
-/*   Updated: 2025/02/23 18:08:19 by mhaddou          ###   ########.fr       */
+/*   Updated: 2025/03/08 20:40:05 by mhaddou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,22 +48,6 @@
 #define GRAY   0x808080
 #define LIGHT_GRAY 0xD3D3D3
 #define DARK_GRAY  0xA9A9A9
-
-
-size_t	ft_strlen(const char *s);
-void	ft_putstr_fd(char *s, int fd);
-int	ft_strcmp(const char *s1, const char *s2);
-// fractal functions
-int ft_julia(char *par1 , char *par2);
-int ft_burningship(void);
-int ft_mandelbrot(void);
-int ft_atoi(const char *nptr);
-int pre_mlx(char *fractal_name);
-char	*ft_strjoin(char *s1, char *s2);
-void ft_free(void *ptr);
-// fractal functions
-
-
 typedef struct
 {
     void *mlx;
@@ -82,6 +66,24 @@ typedef struct
     int bit_per_pix;
     int line_len;
 } img_s;
+
+size_t	ft_strlen(const char *s);
+void	ft_putstr_fd(char *s, int fd);
+int	ft_strcmp(const char *s1, const char *s2);
+// fractal functions
+int ft_julia(char *par1 , char *par2);
+int ft_burningship(void);
+int ft_mandelbrot(void);
+int ft_atoi(const char *nptr);
+int initialize(char *fractal_name, double x, double y);
+int draw_fractal_julia(windo_info *data, double x, double y);
+int draw_fractal_mandelbrot(windo_info *data);
+char	*ft_strjoin(char *s1, char *s2);
+void ft_free(void *ptr);
+// fractal functions
+
+
+
 
 
 #endif

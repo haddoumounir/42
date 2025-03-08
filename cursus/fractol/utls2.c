@@ -26,21 +26,15 @@ int handle_hook(int XK, windo_info *data)
 {
     if(XK == XK_Escape)
         destroy(data,2);
-        //"ida 3adk up etc ... dir chi hajat 5arin"
-    // if(XK == XK_Up)
-    // if(XK == XK_Down)
-    // if(XK == XK_Right)
-    // if(XK == XK_Left)
-
-
 
     return 0;
 }
 
-int pre_mlx(char *fractal_name)
+
+
+int initialize(char *fractal_name, double x, double y)
 {
     windo_info data;
-    img_s img;
 	data.mlx =mlx_init();
     data.fractol_name = ft_strjoin("fractol:  ",fractal_name);
     if(!data.mlx)
@@ -51,9 +45,14 @@ int pre_mlx(char *fractal_name)
     if(!data.mlx_win)
         return (free(data.mlx),free(data.fractol_name),1);
     mlx_key_hook(data.mlx_win, handle_hook, &data);
+    if(!ft_strcmp(fractal_name, "mandelbrot"))
+        draw_fractal_mandelbrot(&data);
+    else if(!ft_strcmp(fractal_name, "julia"))
+        draw_fractal_julia(&data,x,y);
     mlx_loop(data.mlx);
-    img.img_ptr = mlx_new_image(data.mlx,WIDTH,HEIGHT);
-    if(!img.img_ptr)
-        return (destroy(&data,3),1);
+    // img_s img;
+    // img.img_ptr = mlx_new_image(data.mlx,WIDTH,HEIGHT);
+    // if(!img.img_ptr)
+    //     return (destroy(&data,3),1);
     return(0);
 }

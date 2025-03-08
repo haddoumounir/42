@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_julia.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddou <mhaddou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mhaddou <mhaddou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 09:44:04 by mhaddou           #+#    #+#             */
-/*   Updated: 2025/02/18 08:02:53 by mhaddou          ###   ########.fr       */
+/*   Updated: 2025/03/08 21:25:55 by mhaddou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,13 @@ double ft_atod(char *s)
     }
 	return(val);
 }
-
+int draw_fractal_julia(windo_info *data, double x, double y)
+{
+    (void)x;
+    (void)y;
+    (void)data;
+    return 0;
+}
 int ft_julia(char *par1 , char *par2)
 {
     if(checker(par1) || checker(par2))
@@ -57,10 +63,7 @@ int ft_julia(char *par1 , char *par2)
         ft_putstr_fd("Error Invalid parameters for fractal Julia\n", 2);
         return (1);
     }
-    double x = ft_atod(par1);
-    double y = ft_atod(par2);
-    printf("%lf\n",x); //to ignore  unused
-    printf("%lf\n",y);
-    pre_mlx("julia");
+    initialize("julia",ft_atod(par1),ft_atod(par2));
+    
     return (0);
 }

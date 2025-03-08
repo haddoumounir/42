@@ -3,21 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mandelbrot.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddou <mhaddou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mhaddou <mhaddou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 09:46:29 by mhaddou           #+#    #+#             */
-/*   Updated: 2025/02/25 08:50:47 by mhaddou          ###   ########.fr       */
+/*   Updated: 2025/03/08 20:39:55 by mhaddou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
 
-double scale_number(double number, double minAllowed, double maxAllowed, double min, double max)
+double scale_number(double x, double x_min, double x_max, double y_min, double y_max)
 {
-    number -= min;
-    number /= (max - min);
-    return (maxAllowed - minAllowed) * number + minAllowed;
+    x -= x_min;
+    x /= (x_max - x_min);
+    return (y_max - y_min) * x + y_min;
 }
+
 int rbg(int red , int green , int blue)
 {
     return(pow(red,2)+pow(green,1)+pow(blue,0));
@@ -33,12 +34,12 @@ void pixel_handler(int x, int y , windo_info data)
     int color = 0;
     while (i < MAX_TH_THERATION)
     {
-        double r = pow(z.i, 2) - pow(z.r, 2);
+        double r = z.i*z.i - z.r*z.r;
         z.i = 2 * (z.i) * (z.r);
         z.r = r;
         z.r += c.r;
         z.i += c.i;
-        if (pow(z.i, 2) + pow(z.r, 2) > ESCAPE_VALUER)
+        if (z.i*z.i + z.r*z.r > ESCAPE_VALUER)
         {
             // color = RED^2+GREEN^1+BLUE^0
             //provide some data for here
@@ -50,15 +51,21 @@ void pixel_handler(int x, int y , windo_info data)
     }
     return;
 }
-
+int draw_fractal_mandelbrot(windo_info *data)
+{
+    (void)data;
+    
+    return 0;
+}
 int ft_mandelbrot(void)
 {
-    int i = 0;
-    while (i < 800)
-    {
-        printf("%d --> %f\n", i, scale_number((double)i, -2, 2, 0, 799));
-        i++;
-    }
+    //int i = 0;
+    initialize("mandelbrot", 0, 0);
+    // while (i < 800)
+    // {
+    //     printf("%d --> %f\n", i, scale_number((double)i, 0, 799, -2, 2));
+    //     i++;
+    // }
 
     return (0);
 }
