@@ -6,7 +6,7 @@
 #    By: mhaddou <mhaddou@student.1337.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/26 16:33:22 by mhaddou           #+#    #+#              #
-#    Updated: 2025/10/26 20:24:19 by mhaddou          ###   ########.fr        #
+#    Updated: 2025/10/26 20:44:39 by mhaddou          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,8 @@ $(NAME) : $(SRC_OBJ)
 	$(CXX) $(CXX_FLAGS) $(SRC_OBJ) -o $(NAME)
 clean:
 	rm -f $(SRC_OBJ)
-fclean:
+fclean: clean
 	rm -f $(NAME)
-	rm -f $(SRC_OBJ)
 re : fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all re fclean clean

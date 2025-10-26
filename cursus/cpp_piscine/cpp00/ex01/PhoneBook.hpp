@@ -6,15 +6,17 @@
 /*   By: mhaddou <mhaddou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 22:03:41 by mhaddou           #+#    #+#             */
-/*   Updated: 2025/10/26 19:17:41 by mhaddou          ###   ########.fr       */
+/*   Updated: 2025/10/26 20:45:03 by mhaddou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
+
 #include <string>
-#include "Contact.hpp"
 #include <iostream>
+#include "Contact.hpp"
+
 class PhoneBook
 {
     private:
